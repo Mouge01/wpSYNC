@@ -504,3 +504,5 @@ wpSYNC is [MIT licensed](LICENSE). Its GDM resource/CSS mechanism derives from
 [kem-a/gnome-gdm-wallpaper](https://github.com/kem-a/gnome-gdm-wallpaper).
 Upstream notices are preserved in [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md)
 and [licenses/gnome-gdm-wallpaper-MIT.txt](licenses/gnome-gdm-wallpaper-MIT.txt).
+
+Built with Codex.
