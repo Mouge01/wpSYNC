@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+ "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
+<policyconfig>
+  <vendor>Wallpaper Sync</vendor>
+  <action id="io.github.mouge.wallpaper-sync.apply">
+    <description>Update the GDM and GRUB wallpapers</description>
+    <message>Authorization is required to update the login and boot wallpapers.</message>
+    <defaults><allow_any>no</allow_any><allow_inactive>no</allow_inactive><allow_active>no</allow_active></defaults>
+  </action>
+  <action id="io.github.mouge.wallpaper-sync.restore">
+    <description>Restore the verified Fedora GDM theme or previous GRUB wallpaper</description>
+    <message>Authorization is required to restore the login theme or previous boot wallpaper.</message>
+    <defaults><allow_any>no</allow_any><allow_inactive>no</allow_inactive><allow_active>no</allow_active></defaults>
+  </action>
+</policyconfig>

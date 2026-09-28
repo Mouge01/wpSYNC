@@ -1,0 +1,39 @@
+[Unit]
+Description=Wallpaper Sync privileged GDM and GRUB wallpaper helper
+After=dbus.service
+StartLimitIntervalSec=60
+StartLimitBurst=5
+
+[Service]
+Type=dbus
+BusName=io.github.mouge.WallpaperSync1
+ExecStart=/usr/local/libexec/wallpaper-sync-helper
+User=root
+Group=root
+# Fedora systemd drops CAP_SETUID for explicit root sandboxed services unless
+# retained here. It is needed only to drop the JPEG child to nobody; changing
+# all child UIDs clears its effective/permitted/ambient capabilities.
+AmbientCapabilities=CAP_SETUID
+UMask=0077
+StateDirectory=wallpaper-sync
+StateDirectoryMode=0700
+RuntimeDirectory=wallpaper-sync
+RuntimeDirectoryMode=0700
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/usr/share/gnome-shell /var/lib/wallpaper-sync /run/wallpaper-sync
+PrivateTmp=true
+PrivateDevices=true
+NoNewPrivileges=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+RestrictRealtime=true
+RestrictAddressFamilies=AF_UNIX
+LockPersonality=true
+MemoryMax=512M
+TasksMax=32
+TimeoutStopSec=90
+Restart=on-failure
+RestartSec=5

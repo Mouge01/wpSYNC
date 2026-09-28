@@ -1,0 +1,6 @@
+#!/usr/bin/python3 -I
+"""Only load installed root-owned code; ignore PYTHONPATH and user site packages."""
+import sys
+sys.path.insert(0, "/usr/local/lib/wallpaper-sync")
+from wallpaper_sync.helper import main
+main()

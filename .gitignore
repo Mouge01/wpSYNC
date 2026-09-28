@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+/work/
+/dist/
+/extension/schemas/gschemas.compiled
+.venv/
+.env
+.env.*
+*.log
+*.swp
+*~
+.DS_Store

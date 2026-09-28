@@ -1,0 +1,16 @@
+name: Feature request
+description: Propose an improvement and explain the use case.
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Suggested behavior
+      description: The first release targets Fedora 44 and GNOME 50; other environments need separate validation.
+    validations:
+      required: true

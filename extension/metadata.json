@@ -1,0 +1,13 @@
+{
+  "uuid": "wallpaper-sync@mouge",
+  "name": "wpSYNC",
+  "description": "Sync the GNOME desktop wallpaper to GDM, with optional GRUB support. Fedora 44 / GNOME 50; requires the wpSYNC helper.",
+  "shell-version": [
+    "50"
+  ],
+  "settings-schema": "org.gnome.shell.extensions.wallpaper-sync",
+  "version": 1,
+  "session-modes": [
+    "user"
+  ]
+}

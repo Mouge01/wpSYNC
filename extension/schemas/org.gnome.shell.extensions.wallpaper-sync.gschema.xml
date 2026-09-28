@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.wallpaper-sync" path="/org/gnome/shell/extensions/wallpaper-sync/">
+    <key name="synchronize" type="b"><default>true</default><summary>Synchronize login and boot wallpapers</summary></key>
+    <key name="grub-enabled" type="b"><default>false</default><summary>Synchronize GRUB wallpaper</summary></key>
+    <key name="blur" type="i"><range min="0" max="30"/><default>12</default><summary>Gaussian blur strength</summary></key>
+    <key name="follow-current" type="b"><default>true</default><summary>Automatically follow desktop changes</summary></key>
+    <key name="convert-unsupported" type="b"><default>true</default><summary>Convert WebP, AVIF and other supported raster formats</summary></key>
+    <key name="show-notifications" type="b"><default>false</default><summary>Show synchronization results</summary></key>
+    <key name="wallpaper-mode" type="s"><choices><choice value="active"/><choice value="dark"/><choice value="light"/></choices><default>'active'</default><summary>Wallpaper source</summary></key>
+  </schema>
+</schemalist>

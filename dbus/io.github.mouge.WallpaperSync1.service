@@ -1,0 +1,5 @@
+[D-BUS Service]
+Name=io.github.mouge.WallpaperSync1
+Exec=/usr/local/libexec/wallpaper-sync-helper
+User=root
+SystemdService=wallpaper-sync-helper.service

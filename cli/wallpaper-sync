@@ -1,0 +1,10 @@
+#!/usr/bin/python3
+"""Run from the source tree or its root-owned installation."""
+from pathlib import Path
+import sys
+
+source_root = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(source_root if (source_root / "wallpaper_sync").is_dir()
+                        else Path("/usr/local/lib/wallpaper-sync")))
+from wallpaper_sync.cli import main
+main()

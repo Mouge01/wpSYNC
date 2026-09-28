@@ -1,0 +1,20 @@
+[Unit]
+Description=Wallpaper Sync user image processing service
+PartOf=graphical-session.target
+StartLimitIntervalSec=60
+StartLimitBurst=5
+
+[Service]
+Type=dbus
+BusName=io.github.mouge.WallpaperSync
+ExecStart=/usr/local/bin/wallpaper-sync _serve
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+RestrictSUIDSGID=true
+RestrictRealtime=true
+MemoryMax=3G
+TasksMax=64
+TimeoutStopSec=150
+Restart=on-failure
+RestartSec=5

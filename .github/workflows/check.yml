@@ -1,0 +1,44 @@
+name: Fedora checks
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    container: fedora:44
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+      - name: Install container-only build tools
+        run: dnf -y install python3 git make nodejs bash shadow-utils util-linux
+      - name: Install the documented Fedora dependencies in the container
+        run: |
+          python3 - <<'PY'
+          import runpy
+          import subprocess
+          packages = runpy.run_path("tools/install.py")["PACKAGES"]
+          subprocess.run(["dnf", "-y", "install", *packages], check=True)
+          PY
+      - name: Run checks and build as an unprivileged user
+        run: |
+          useradd --create-home --uid 1001 wpsync-test
+          chown -R wpsync-test:wpsync-test "$GITHUB_WORKSPACE"
+          runuser -u wpsync-test -- env HOME=/home/wpsync-test make check dist
+      - name: Upload source archive and checksum
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        with:
+          name: wpsync-source
+          path: |
+            dist/wpSYNC-*.tar.gz
+            dist/wpSYNC-*.tar.gz.sha256
+          if-no-files-found: error
+          retention-days: 14

@@ -1,0 +1,47 @@
+name: Bug report
+description: Report a reproducible problem on Fedora 44 and GNOME 50.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For security concerns, follow SECURITY.md. Do not post private wallpapers,
+        account details, or complete system logs. Review and redact pasted output.
+  - type: input
+    id: version
+    attributes:
+      label: wpSYNC version
+      description: Run wallpaper-sync --version, or provide the source tag/commit.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Fedora and GNOME versions
+      placeholder: Fedora 44, GNOME Shell 50.x
+    validations:
+      required: true
+  - type: dropdown
+    id: component
+    attributes:
+      label: Affected component
+      options:
+        - GDM login wallpaper
+        - GNOME extension or Nautilus menu
+        - Optional GRUB wallpaper
+        - Installation or removal
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps, expected result, and actual result
+      description: Include whether light/dark mode or a Fedora update matters.
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Relevant, redacted diagnostics
+      description: Paste only relevant error messages or wallpaper-sync status output after reviewing personal paths.
+      render: text
